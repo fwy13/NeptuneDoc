@@ -7,6 +7,7 @@ const getScoreBoard = async () => {
             Name: string;
             Score: number;
             Time: number;
+            Unit: number
         }[][];
     } = await fetch(url).then((res) => res.json());
     return data;

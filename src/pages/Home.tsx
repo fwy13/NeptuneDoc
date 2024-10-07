@@ -17,13 +17,21 @@ const HomePage = () => {
             Name: string;
             Score: number;
             Time: number;
+            Unit: number;
         }[][];
     }>();
     const useInput = useRef<HTMLInputElement>(null);
     const [isUnlock, setUnlock] = useState<boolean>(true);
     const [isName, setName] = useState<string>("");
     useEffect(() => {
-        setName(localStorage.getItem("name") ?? "");
+        if (isName.length ===0){
+            if (localStorage.getItem("name")) {
+                setName(localStorage.getItem("name") ??"")
+            } else {
+                localStorage.setItem("name", "Ẩn danh")
+            }
+            
+        } 
     }, []);
     useEffect(() => {
         getData();
@@ -40,7 +48,10 @@ const HomePage = () => {
                     type="text"
                     className="outline-none p-2 w-36 bg-transparent text-end"
                     disabled={isUnlock}
-                    placeholder={isName}
+                    value={isName}
+                    onChange={(e) => {
+                        setName(e.target.value)
+                    }}
                     ref={useInput}
                 />
                 <button
@@ -117,6 +128,7 @@ const HomePage = () => {
                                 <th>Tên</th>
                                 <th>Điểm</th>
                                 <th>Thời gian</th>
+                                <th>Unit</th>
                             </tr>
                         </thead>
                         <tbody className="">
@@ -126,6 +138,7 @@ const HomePage = () => {
                                     <td>{el.Name}</td>
                                     <td>{el.Score}</td>
                                     <td>{formatTimeCount(Number(el.Time))}</td>
+                                    <td>{el.Unit}</td>
                                 </tr>
                             ))}
                         </tbody>
