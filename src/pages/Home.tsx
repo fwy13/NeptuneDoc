@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import getAllUnit from "../services/getAllUnit";
 import getScoreBoard from "../services/getScoreBoard";
-import { formatNumber } from "../utils/formatTimeCount";
+import formatTimeCount, { formatNumber } from "../utils/formatTimeCount";
 
 const HomePage = () => {
     const getData = async () => {
@@ -125,7 +125,7 @@ const HomePage = () => {
                                     <th>{formatNumber(Number(el.Rank))}</th>
                                     <td>{el.Name}</td>
                                     <td>{el.Score}</td>
-                                    <td>{el.Time}</td>
+                                    <td>{formatTimeCount(Number(el.Time))}</td>
                                 </tr>
                             ))}
                         </tbody>
