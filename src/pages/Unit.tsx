@@ -32,21 +32,25 @@ const Unit = () => {
 
     const saveResult = async () => {
         const name = localStorage.getItem("name");
+        const id = localStorage.getItem("id");
         const score = isCount;
         const time = isCountUp;
         const response = await fetch(
-            `${url}?name=${name}&score=${score}&time=${time}&unitScore=${params.number}`
+            `${url}?name=${name}&score=${score}&time=${time}&unitScore=${params.number}&id=${id}`
         ).then((res) => res.json());
         setResult(response);
     };
+
     useEffect(() => {
         if (isResult !== undefined) {
             route("/");
         }
     }, [isResult]);
+
     const getData = async () => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const res: { data: { WORD: string; MEANING: string }[][] } | any =
-            await getUnit(Number(params.number));
+            await getUnit(params.number ?? "");
         if (res.error) {
             return setError(true);
         }
