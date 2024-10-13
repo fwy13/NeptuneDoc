@@ -244,7 +244,7 @@ const HomePage = () => {
                                                                       </td>
                                                                       <td>
                                                                           {
-                                                                              el.Unit
+                                                                              el.Unit.toString().slice(4)
                                                                           }
                                                                       </td>
                                                                   </tr>
@@ -281,7 +281,7 @@ const HomePage = () => {
                                                                       </td>
                                                                       <td>
                                                                           {
-                                                                              el.Unit
+                                                                              el.Unit.toString().slice(4)
                                                                           }
                                                                       </td>
                                                                   </tr>
