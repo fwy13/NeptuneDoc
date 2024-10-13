@@ -76,11 +76,9 @@ const HomePage = () => {
         <FramerMotion style={{}}>
             <div className="w-full h-screen">
                 <div className="flex flex-col items-center justify-center">
-                    <h1 className="mt-5 text-2xl text-gray-100">
-                        FlashCardEnglish
-                    </h1>
+                    <h1 className="mt-5 text-2xl text-gray-100">NeptuneDoc</h1>
                     <div className="flex justify-between px-5 items-center py-2">
-                        <div className="flex w-full justify-center items-center p-3">
+                        <div className="flex w-full justify-center items-center p-3 gap-2">
                             <button
                                 className="rounded-md hover:text-white hover:scale-110"
                                 onClick={() => useModal.current!.showModal()}
@@ -100,6 +98,31 @@ const HomePage = () => {
                                     />
                                 </svg>
                             </button>
+                            <div
+                                className="tooltip tooltip-right"
+                                data-tip="Mã nguồn"
+                            >
+                                <Link
+                                    to={"https://github.com/fwy13/NeptuneDoc"}
+                                    className="rounded-md hover:text-white hover:scale-110"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth={1.5}
+                                        stroke="currentColor"
+                                        className="size-6"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"
+                                        />
+                                    </svg>
+                                </Link>
+                            </div>
+
                             <dialog ref={useModal} className="modal">
                                 <div className="modal-box px-3">
                                     <div className="flex justify-between items-center px-2">
